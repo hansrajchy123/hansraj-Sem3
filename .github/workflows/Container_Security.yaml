@@ -4,6 +4,18 @@ on:
   push:
     branches:
       - main
+      - container_sec
+
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: 'Branch to scan'
+        required: true
+        default: 'main'
+        type: choice
+        options:
+          - main
+          - container_sec
 
 jobs:
   scan-public-image:
